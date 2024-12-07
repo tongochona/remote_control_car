@@ -172,12 +172,7 @@ static const char PROGMEM INDEX_HTML[] = R"rawliteral(
   <body>
     <h1>ESP32-CAM Robot</h1>
     <img src="" id="photo" >
-    <table>
-      <tr><td colspan="3" align="center"><button class="button" onmousedown="toggleCheckbox('forward');" ontouchstart="toggleCheckbox('forward');" onmouseup="toggleCheckbox('stop');" ontouchend="toggleCheckbox('stop');">Forward</button></td></tr>
-      <tr><td align="center"><button class="button" onmousedown="toggleCheckbox('left');" ontouchstart="toggleCheckbox('left');" onmouseup="toggleCheckbox('stop');" ontouchend="toggleCheckbox('stop');">Left</button></td><td align="center"><button class="button" onmousedown="toggleCheckbox('stop');" ontouchstart="toggleCheckbox('stop');">Stop</button></td><td align="center"><button class="button" onmousedown="toggleCheckbox('right');" ontouchstart="toggleCheckbox('right');" onmouseup="toggleCheckbox('stop');" ontouchend="toggleCheckbox('stop');">Right</button></td></tr>
-      <tr><td colspan="3" align="center"><button class="button" onmousedown="toggleCheckbox('backward');" ontouchstart="toggleCheckbox('backward');" onmouseup="toggleCheckbox('stop');" ontouchend="toggleCheckbox('stop');">Backward</button></td></tr>   
-                   
-    </table>
+    
    <script>
    function toggleCheckbox(x) {
      var xhr = new XMLHttpRequest();
@@ -334,20 +329,20 @@ static esp_err_t cmd_handler(httpd_req_t *req)
     Serial.println("Left");
     digitalWrite(MOTOR_1_PIN_1, HIGH);
     digitalWrite(MOTOR_1_PIN_2, LOW);
-    analogWrite(MOTOR_1_EN_PIN, 255);
+    analogWrite(MOTOR_1_EN_PIN, 128);
     digitalWrite(MOTOR_2_PIN_1, LOW);
     digitalWrite(MOTOR_2_PIN_2, HIGH);
-    analogWrite(MOTOR_2_EN_PIN, 255);
+    analogWrite(MOTOR_2_EN_PIN, 128);
   }
   else if (!strcmp(variable, "right"))
   {
     Serial.println("Right");
     digitalWrite(MOTOR_1_PIN_1, LOW);
     digitalWrite(MOTOR_1_PIN_2, HIGH);
-    analogWrite(MOTOR_1_EN_PIN, 255);
+    analogWrite(MOTOR_1_EN_PIN, 128);
     digitalWrite(MOTOR_2_PIN_1, HIGH);
     digitalWrite(MOTOR_2_PIN_2, LOW);
-    analogWrite(MOTOR_2_EN_PIN, 255);
+    analogWrite(MOTOR_2_EN_PIN, 128);
   }
   else if (!strcmp(variable, "backward"))
   {
