@@ -126,8 +126,6 @@ const char *password = "12345678";
 #define MOTOR_1_EN_PIN 2
 #define MOTOR_2_EN_PIN 4
 
-
-
 static const char *_STREAM_CONTENT_TYPE = "multipart/x-mixed-replace;boundary=" PART_BOUNDARY;
 static const char *_STREAM_BOUNDARY = "\r\n--" PART_BOUNDARY "\r\n";
 static const char *_STREAM_PART = "Content-Type: image/jpeg\r\nContent-Length: %u\r\n\r\n";
@@ -172,13 +170,58 @@ static const char PROGMEM INDEX_HTML[] = R"rawliteral(
   <body>
     <h1>ESP32-CAM Robot</h1>
     <img src="" id="photo" >
-    
+    <table>
+      <tr><td colspan="3" align="center"><button class="button" onmousedown="toggleCheckbox('forward');" ontouchstart="toggleCheckbox('forward');" onmouseup="toggleCheckbox('stop');" ontouchend="toggleCheckbox('stop');">Forward</button></td></tr>
+      <tr><td align="center"><button class="button" onmousedown="toggleCheckbox('left');" ontouchstart="toggleCheckbox('left');" onmouseup="toggleCheckbox('stop');" ontouchend="toggleCheckbox('stop');">Left</button></td><td align="center"><button class="button" onmousedown="toggleCheckbox('stop');" ontouchstart="toggleCheckbox('stop');">Stop</button></td><td align="center"><button class="button" onmousedown="toggleCheckbox('right');" ontouchstart="toggleCheckbox('right');" onmouseup="toggleCheckbox('stop');" ontouchend="toggleCheckbox('stop');">Right</button></td></tr>
+      <tr><td colspan="3" align="center"><button class="button" onmousedown="toggleCheckbox('backward');" ontouchstart="toggleCheckbox('backward');" onmouseup="toggleCheckbox('stop');" ontouchend="toggleCheckbox('stop');">Backward</button></td></tr>   
+                   
+    </table>
    <script>
    function toggleCheckbox(x) {
      var xhr = new XMLHttpRequest();
      xhr.open("GET", "/action?go=" + x, true);
      xhr.send();
    }
+document.addEventListener('keydown', function(event) {
+            switch(event.key) {
+                case 'w':
+                case 'W':
+                    toggleCheckbox('forward');
+                    break;
+                case 'a':
+                case 'A':
+                    toggleCheckbox('left');
+                    break;
+                case 's':
+                case 'S':
+                    toggleCheckbox('backward');
+                    break;
+                case 'd':
+                case 'D':
+                    toggleCheckbox('right');
+                    break;
+                case 'e':
+                case 'E':
+                    toggleCheckbox('stop');
+                    break;
+            }
+        });
+
+        document.addEventListener('keyup', function(event) {
+            switch(event.key) {
+                case 'w':
+                case 'W':
+                case 'a':
+                case 'A':
+                case 's':
+                case 'S':
+                case 'd':
+                case 'D':
+                    toggleCheckbox('stop');
+                    break;
+            }
+        });
+
    window.onload = document.getElementById("photo").src = window.location.href.slice(0, -1) + ":81/stream";
   </script>
   </body>
@@ -417,7 +460,7 @@ void startCameraServer()
 void setup()
 {
   WRITE_PERI_REG(RTC_CNTL_BROWN_OUT_REG, 0); // disable brownout detector
-  
+
   pinMode(MOTOR_1_PIN_1, OUTPUT);
   pinMode(MOTOR_1_PIN_2, OUTPUT);
   pinMode(MOTOR_2_PIN_1, OUTPUT);
