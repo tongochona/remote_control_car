@@ -6,7 +6,7 @@ Learn about MCUs by using **ESP32-CAM** and use **OpenCV** recognize the hand ge
   - [📋 Guideline](#-guideline)
     - [🛠 Preparation](#-preparation)
     - [📥 Installation](#-installation)
-    - [🚀 Features](#-features)
+  - [🚀 Features](#-features)
 
 
 ## 📸 Illustrative image
@@ -35,7 +35,7 @@ Learn about MCUs by using **ESP32-CAM** and use **OpenCV** recognize the hand ge
 
 Now, you can control by hand gesture!
 
-### 🚀 Features ###
+## 🚀 Features ##
 - 🤚 Hand Gesture Recognition using OpenCV
 - 📹 Live Video Stream by ESP32-CAM
 - 🖱 Remote control via Web interface or Hand Gesture
