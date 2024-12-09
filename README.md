@@ -32,7 +32,6 @@ Learn about MCUs by using **ESP32-CAM** and use **OpenCV** recognize the hand ge
 6. Schematic Diagram
 
     <img src="image/layout.png" alt="Circuit" width="400" />
-
     | L298N Motor Driver | ESP32-CAM |
     |--------------------|-----------|
     | IN1 | GPIO 14|
