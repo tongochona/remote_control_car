@@ -29,7 +29,7 @@ Learn about MCUs by using **ESP32-CAM** and use **OpenCV** recognize the hand ge
     - Repalace your **SSID** and **password**
 4. **Build and flash the ESP32-CAM**
 5. **Switch monitor terminal** and retrieve **ESP's IP address**
-6. Enure your computer is on same network as ESP32-CAM 
+6. Ensure your computer is on same network as ESP32-CAM 
    - Open brower and enter **ESP's IP address** to watch video stream and control the car via the web interface
 7. Replace **ESP's IP address** in python code and run it.
 
