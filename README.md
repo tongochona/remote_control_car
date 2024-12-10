@@ -10,6 +10,11 @@ Learn about MCUs by using **ESP32-CAM** and use **OpenCV** recognize the hand ge
 
 
 ## 📸 Illustrative image
+   
+   <img src="image/illust.png" alt="Illustr" width="700">
+   
+  Serial monitor
+    
 ## 📋 Guideline
 ### 🛠 Preparation
 1. **Install library needed for OpenCV:**
@@ -31,7 +36,9 @@ Learn about MCUs by using **ESP32-CAM** and use **OpenCV** recognize the hand ge
 5. **Switch monitor terminal** and retrieve **ESP's IP address**
 6. Schematic Diagram
 
-    <img src="image/layout.png" alt="Circuit" width="400" />
+    <img src="image/layout.png" alt="Circuit" width="500" />
+
+    
     | L298N Motor Driver | ESP32-CAM |
     |--------------------|-----------|
     | IN1 | GPIO 14|
